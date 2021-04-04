@@ -9,4 +9,4 @@ Python 3.8 or above with all [requirements](requirements.txt) dependencies insta
 ```python
 $ pip install -r requirements.txt
 ```
-
+![Website Homepage](home-page.jpg)
