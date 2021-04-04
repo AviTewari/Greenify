@@ -14,13 +14,15 @@ Often plants wither because they are infected and the disease is not detected at
 
 ## Other Features
 1. **Chat Box**-
-             * It is Quite Helpful for a walkthrough.
-             * It will clear most of your doubts.
-             * It has got HUMOUR.
+             - It is Quite Helpful for a walkthrough.
+             - It will clear most of your doubts.
+             - It has got HUMOUR.
 2. **Weather and Air Quality Index**-
              * Uses G-maps for location (longitude and latitudes).
              * Temperature & Climatic Conditions.
      
+ ## Example
+ ![pedicted result example](example.JPG)
             
 
 
