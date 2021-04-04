@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <style>
+    body{
+      background:url('../static/assets/img/farm.jpg') no-repeat fixed 100% 100%;
+      zoom: 80%;
+    }
+    .result{
+  cursor: url('../static/assets/img/1.png'), auto;	
+}
+    #snackbar {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: 250px;
+      background-color: rgba(51, 51, 51, 0.815);
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      bottom: 0;
+      font-size: 17px;
+      margin-bottom:650px;
+      font-size: x-large;
+      margin-right: 200px;
+    }
+    
+    #snackbar.show {
+   
+      visibility: visible;
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+     
+    }
+    
+    @-webkit-keyframes fadein {
+      from {bottom: 0; opacity: 0;} 
+      to {bottom: 30px; opacity: 1;}
+    }
+    
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+    
+    @-webkit-keyframes fadeout {
+      from {bottom: 30px; opacity: 1;} 
+      to {bottom: 0; opacity: 0;}
+    }
+    
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }
+    </style>
+<head>
+  <meta charset="UTF-8">
+  <title>Results</title>
+  <link href="../static/assets/img/favicon_io/favicon-32x32.png" rel="icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../static/assets/css/result.css">
+  <link href="../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,700&amp;display=swap'>
+  <link href="../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+</head>
+
+<body>
+ 
+  <div id="snackbar">Hi</div>
+<!-- partial:index.partial.html -->
+<header id="header" class="fixed-top " style="margin-top: 30px;">
+  <div class="container d-flex align-items-center" style="margin-right: 100px;">
+    <nav id="navbar" class="navbar" style="margin-left: 400px;">
+      <ul>
+        <a class="btn btn-danger" href="{{ url_for('index') }}" style="margin-right: 40px;" >Home <i class="bi bi-house-fill"></i></a>
+      </ul>
+      <ul>
+        <a class="btn btn-success" href="{{ url_for('upload') }}" style="margin-right: 40px;">Upload <i class="bi bi-cloud-upload-fill"></i></a>
+      </ul>
+      <ul>
+        <a class="btn btn-primary" onclick="myFunction() "  style = "cursor:help;color: azure;">Tips! <i class="bi bi-lightbulb-fill " ></i></a>
+      </ul>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
+
+
+
+
+<div class="comparison-slider-container" >
+ 
+<!--
+  <div class="slider-right slider-col" >
+    <div class="slider-bg slider-bg-right">
+      <p class="slider-caption slider-caption-right">Processed</p>
+    </div>
+  </div>
+
+  <div class="slider-left slider-col">
+    <div class="slider-bg slider-bg-left">
+      <p class="slider-caption slider-caption-left">Original</p>
+    </div>
+  </div>
+ 
+  <div class="handle"></div>-->
+  
+  <h3  style="text-align: center;margin-top: -130px;margin-right: 800px;margin-left: -135px;font-weight: bold;font-size: 45px;font-family: Verdana, Geneva, Tahoma, sans-serif;">{{pred}}</h3>
+</div>
+
+ 
+<img src="../static/assets/img/ok1.png" style="width:1100px;height: 1100px;margin-top: 170px;margin-right: 300px;margin-left:550px">
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/utils/Draggable.min.js'></script><script  src="../static/assets/js/result.js"></script>
+
+</body>
+<script>
+  function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+  function myFunction() {
+    var arr= ['It all begins with soil. Achieving healthy soil means a lot. Keep a check if your soil has proper nutrients and you can do that by getting the soil analyzed at soil test centers.',' If the soil smears between your fingers instead of gently crumbling, that is too wet.','It is always tempting to use old seed, but unless it’s kept in ideal conditions, old seed has probably lost some of its germination rate and might not perform as well for you.','Wherever you are and whenever you plan to grow the crop, find varieties that match your climate or at least your heat or cold.','When using transplants, make sure the crop is healthy and vigorous before putting it in the soil. Adding a weak crop to the soil can lead to disease and pest issues.',' Once the crops hit the soil, it’s important to make sure that they get established well. The block of soil should be covered completely so as to not dry out. Irrigate if conditions are dry.','Cover crops such as arugula and spring brassicas with row cover varieties that are sensitive to pest damage.','You can keep the crop in moist soil many different ways, but doing so is necessary for the success of most crops.','Weeds can quickly smother and outcompete crops, making them unproductive or difficult to harvest. So managing weeds becomes a critical step in having a successful crop of any sort. Make sure your crops are always weed free.'];
+    var x = document.getElementById("snackbar");
+    x.innerHTML = arr[getRndInteger(0,8)];
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
+  </script>
+</html>
