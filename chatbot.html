@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    
+    <style>
+        .pink::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.pink{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  scrollbar-color: rgba(255, 0, 0, 0);
+}
+        
+        #bkd{
+            background: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+  <meta charset="UTF-8">
+  <title>Chatbot-Greenify</title>
+  <link href="../static/assets/img/favicon_io/favicon-32x32.png" rel="icon">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.3/tailwind.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css'><link rel="stylesheet" href="./style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="../static/assets/css/parallel.css">
+</head>
+<body >
+<!-- partial:index.partial.html -->
+
+<div id='stars'></div>
+<div id='stars2'></div>
+<div id='stars3'></div>
+
+<div x-data="chatBot()" class="pink" >
+    <div class="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
+        <div id="messages" class="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
+            <template x-for="(message, key) in messages">
+                <div >
+                    <div class="flex items-end" :class="message.from=='bot'?'':'justify-end'" >
+                        <div class="flex flex-col space-y-2 text-md leading-tight max-w-lg mx-2" :class="message.from=='bot'?'order-2 items-start':'order-1 items-end'" >
+                            <div>
+                                <span class="px-4 py-3 rounded-xl inline-block" :class="message.from=='bot'?'rounded-bl-none bg-blue-500 text-white':'rounded-br-none bg-blue-500 text-white'" x-text="message.text" ></span>
+                            </div>
+                        </div>
+                        <img :src="message.from=='bot'?'../static/assets/img/chatbot-1.gif':'../static/assets/img/chatbot-2.png'" alt="" class="w-10 h-10 rounded-full" :class="message.from=='bot'?'order-1':'order-2'">
+                    </div>
+                </div>
+            </template>
+            <div x-show="botTyping" style="display: none;">
+                <div class="flex items-end">
+                    <div class="flex flex-col space-y-2 text-md leading-tight mx-2 order-2 items-start">
+                        <div><img src="../static/assets/img/type.gif" alt="..." class="w-10 ml-6" style="opacity: 0.5;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div >
+            <div class="relative flex">
+                <input type="text" placeholder="My problem is..." autocomplete="off" autofocus="true" @keydown.enter="updateChat($event.target)" class="text-md w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-5 pr-16 bg-gray-100 border-2 border-gray-200 focus:border-blue-500 rounded-full py-2" x-ref="input" style="background-color: rgba(240, 248, 255, 0);" />
+                <div class="absolute right-2 items-center inset-y-0 hidden sm:flex">
+                    <button type="button" class="inline-flex items-center justify-center rounded-full h-8 w-8 transition duration-200 ease-in-out text-white bg-blue-500 hover:bg-blue-600 focus:outline-none" @click.prevent="updateChat($refs.input)">
+                        <i class="mdi mdi-arrow-right text-xl leading-none"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js'></script><script  src="../static/assets/js/chat-bot.js"></script>
+
+</body>
+</html>
